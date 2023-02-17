@@ -1,6 +1,6 @@
 
 # Write Up 
-www.donskytech.com (Please wait)  
+https://www.donskytech.com/node-red-dht11-dht22-custom-weather-station-dashboard/  
 ![Node Red DHT22 DHT11 Custom Dashboard Flow](https://user-images.githubusercontent.com/69466026/219585210-4964728c-8cda-4b4c-bc21-0f22c55b3793.PNG)
   
 ![Node Red DHT22 DHT11 Custom Dashboard - Dark Theme](https://user-images.githubusercontent.com/69466026/219584504-e16d4d51-c83c-4071-a39f-9e387abb8d18.PNG)
