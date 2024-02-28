@@ -1,0 +1,409 @@
+[
+    {
+        "id": "6c8ecaca8aec0187",
+        "type": "tab",
+        "label": "Control Arduino Circuit",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1ce71078f2db4e7d",
+        "type": "ui-switch",
+        "z": "6c8ecaca8aec0187",
+        "name": "Toggle LED",
+        "label": "Toggle ON/OFF",
+        "group": "f993ef2e8ce63403",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "235a6c7775f33a21",
+                "ac28cee8f57716a1"
+            ]
+        ]
+    },
+    {
+        "id": "0fe2b183f62f813b",
+        "type": "ui-radio-group",
+        "z": "6c8ecaca8aec0187",
+        "group": "b4f5b681a0d05039",
+        "name": "RGB Select",
+        "label": "Choose RGB Color:",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "columns": 1,
+        "passthru": false,
+        "options": [
+            {
+                "label": "RED",
+                "value": "red",
+                "type": "str"
+            },
+            {
+                "label": "GREEN",
+                "value": "green",
+                "type": "str"
+            },
+            {
+                "label": "BLUE",
+                "value": "blue",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [
+                "235a6c7775f33a21",
+                "ecde31f57b727b44"
+            ]
+        ]
+    },
+    {
+        "id": "ee34c56374c77d76",
+        "type": "ui-slider",
+        "z": "6c8ecaca8aec0187",
+        "group": "488342c2c63a3b83",
+        "name": "Servo Position",
+        "label": "Set Servo Position",
+        "tooltip": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "thumbLabel": true,
+        "min": 0,
+        "max": "180",
+        "step": "5",
+        "className": "",
+        "x": 320,
+        "y": 400,
+        "wires": [
+            [
+                "235a6c7775f33a21",
+                "d00dc57cb8bfc540"
+            ]
+        ]
+    },
+    {
+        "id": "235a6c7775f33a21",
+        "type": "ui-notification",
+        "z": "6c8ecaca8aec0187",
+        "ui": "c57f110ee137c06e",
+        "position": "top right",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "3",
+        "showCountdown": true,
+        "outputs": 0,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "raw": false,
+        "className": "",
+        "name": "Notification",
+        "x": 750,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "0b13b570a752cc64",
+        "type": "debug",
+        "z": "6c8ecaca8aec0187",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ac28cee8f57716a1",
+        "type": "change",
+        "z": "6c8ecaca8aec0187",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "toggle-led",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "qos",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 180,
+        "wires": [
+            [
+                "0b13b570a752cc64",
+                "3590acbbf363026a"
+            ]
+        ]
+    },
+    {
+        "id": "ecde31f57b727b44",
+        "type": "change",
+        "z": "6c8ecaca8aec0187",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "rgb-color-set",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "qos",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 280,
+        "wires": [
+            [
+                "0b13b570a752cc64",
+                "3590acbbf363026a"
+            ]
+        ]
+    },
+    {
+        "id": "d00dc57cb8bfc540",
+        "type": "change",
+        "z": "6c8ecaca8aec0187",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "servo-position-set",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "qos",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "0b13b570a752cc64",
+                "3590acbbf363026a"
+            ]
+        ]
+    },
+    {
+        "id": "3590acbbf363026a",
+        "type": "mqtt out",
+        "z": "6c8ecaca8aec0187",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7078846941dbc925",
+        "x": 1110,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f993ef2e8ce63403",
+        "type": "ui-group",
+        "name": "LED Group",
+        "page": "b9ac44efb15af788",
+        "width": "3",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "b4f5b681a0d05039",
+        "type": "ui-group",
+        "name": "RGB Group",
+        "page": "b9ac44efb15af788",
+        "width": "6",
+        "height": "1",
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "488342c2c63a3b83",
+        "type": "ui-group",
+        "name": "Servo Group",
+        "page": "b9ac44efb15af788",
+        "width": "6",
+        "height": "1",
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c57f110ee137c06e",
+        "type": "ui-base",
+        "name": "Control Arduino Circuits",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "navigationStyle": "fixed"
+    },
+    {
+        "id": "7078846941dbc925",
+        "type": "mqtt-broker",
+        "name": "Mosquitto MQTT Broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b9ac44efb15af788",
+        "type": "ui-page",
+        "name": "Home",
+        "ui": "c57f110ee137c06e",
+        "path": "/home",
+        "icon": "home",
+        "layout": "notebook",
+        "theme": "bb3c8533bfa3886b",
+        "order": -1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "bb3c8533bfa3886b",
+        "type": "ui-theme",
+        "name": "Arduino Theme",
+        "colors": {
+            "surface": "#020045",
+            "primary": "#ffffff",
+            "bgPage": "#ffffff",
+            "groupBg": "#00317a",
+            "groupOutline": "#ffffff"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]
