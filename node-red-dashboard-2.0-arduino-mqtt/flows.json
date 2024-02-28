@@ -296,7 +296,7 @@
         "type": "ui-group",
         "name": "LED Group",
         "page": "b9ac44efb15af788",
-        "width": "3",
+        "width": "6",
         "height": "1",
         "order": 2,
         "showTitle": true,
@@ -341,7 +341,7 @@
             "ui-control"
         ],
         "showPathInSidebar": false,
-        "navigationStyle": "fixed"
+        "navigationStyle": "default"
     },
     {
         "id": "7078846941dbc925",
